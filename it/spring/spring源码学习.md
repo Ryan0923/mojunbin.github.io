@@ -5,14 +5,12 @@ bean初始化
 ----
 
 
-#1
+#格式化java代码
 
-    java
+```java
 public class Main {
-public static void main(String[] args)throws Exception{
-Context ctx = new InitialContext();
-Context context = (Context) ctx.lookup("java:comp/env");
-context.lookup("props");
-
-}
-    
+    public static void main(String[] args)throws Exception{
+        Context ctx = new InitialContext();
+        Context context = (Context) ctx.lookup("java:comp/env");
+    }
+```
