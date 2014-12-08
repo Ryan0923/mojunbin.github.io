@@ -5,12 +5,36 @@ bean初始化
 ----
 
 
-#格式化java代码
+
 
 ```java
-public class Main {
-    public static void main(String[] args)throws Exception{
-        Context ctx = new InitialContext();
-        Context context = (Context) ctx.lookup("java:comp/env");
-    }
+public interface InputStreamSource {
+
+	InputStream getInputStream() throws IOException;
+
+}
 ```
+InputStreamSource封装任何能够返回**InputStream**的类。
+
+org.springframework.util.ClassUtils#getDefaultClassLoader可以获取默认类加载器，可以
+用来实现从类中读取文件。
+
+
+```java
+	/**
+	 * Create a new AbstractAutowireCapableBeanFactory.
+	 */
+	public AbstractAutowireCapableBeanFactory() {
+		super();
+		ignoreDependencyInterface(BeanNameAware.class);
+		ignoreDependencyInterface(BeanFactoryAware.class);
+		ignoreDependencyInterface(BeanClassLoaderAware.class);
+	}
+```
+ignoreDependencyInterface忽略给定接口的自动装配功能。
+
+
+##spring-LoadBeanDefinitions 函数执行时序图
+
+
+InputSource来自JDK，而不是spring
