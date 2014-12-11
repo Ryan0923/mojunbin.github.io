@@ -1,3 +1,4 @@
+
 # jetty-maven-plugin 概述
 
 jetty-maven-plugin是基于jetty的一个maven插件，利用jetty的热部署功能，开发过程中可以从减少编译、部署、重启的繁琐工作。
@@ -138,6 +139,4 @@ export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,addr
 
 ```
 重新执行jetty:run，热部署+调试已经配置完毕。
-
-
 
