@@ -38,3 +38,5 @@ ignoreDependencyInterface忽略给定接口的自动装配功能。
 
 
 InputSource来自JDK，而不是spring
+
+##默认标签的解析
