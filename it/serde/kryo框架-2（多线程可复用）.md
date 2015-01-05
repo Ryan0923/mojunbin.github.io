@@ -172,12 +172,12 @@ public class KryoPoolDemo {
             @Override
             public byte[] execute(Kryo kryo) {
 
-                ByteOutputStream bos = new ByteOutputStream();
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 Output output = new Output(bos);
                 Object obj = new Object(); // 替换成实例对象
                 kryo.writeObject(output, obj);
                 output.close();
-                return bos.getBytes();
+                return bos.toByteArray();
             }
         });
 
