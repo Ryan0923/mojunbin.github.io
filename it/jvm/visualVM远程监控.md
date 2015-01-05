@@ -4,6 +4,7 @@
 
 java_home=/usr/java/jdk1.6.0_32/
 
+**请把${java_home}**用实际目录替代。
 
 
 ## 配置jstatd服务
@@ -44,7 +45,9 @@ nohup ${java_home}/bin/jstatd -J-Djava.security.policy=${java_home}/jstatd.all.p
 ```
 
 **java.rmi.server.hostname**:服务器IP
+
 **com.sun.management.jmxremote.port**：jmx端口
+
 **com.sun.management.jmxremote.ssl 和com.sun.management.jmxremote.authenticate**：鉴权配置，设为false较方便
 
 
