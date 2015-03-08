@@ -23,3 +23,4 @@ buf的readIndex会改变。
 
 DefaultAttributeMap用到了JDK5的原子同步类，值得研究。
 
+
