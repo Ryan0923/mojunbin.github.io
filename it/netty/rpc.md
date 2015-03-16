@@ -16,3 +16,18 @@ RpcDecoder：从实现上看，只支持String
 RpcHandler:处理RpcDecoder解码的数据。
 RpcEncoder:处理RpcResponse数据
 
+#服务端处理逻辑
+
+高性能要求：
+netty高性能要点：
+1. 耗时操作不要在IO线程
+2. 异步处理
+3. 外部线程池
+
+
+1. 接受请求
+2. 解码
+3. 线程池处理
+4. 处理回调
+5. 写数据
+6. 编码
