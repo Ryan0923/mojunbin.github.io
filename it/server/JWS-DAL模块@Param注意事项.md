@@ -19,7 +19,7 @@ PS：为什么不直接【level=1 or level=2 】？，有可能再出现level=3,
 
 ## DDL User
 
-```
+```java
 @Table(name = "user")
 public class User {
     @Id
@@ -46,7 +46,7 @@ ID|NAME|LEVEL
 ## @参数节点位置
 
 @参数在sql节点:
-```
+```xml
 <cache name="user_l_levels_sql_" class="ddl.User" prefix="user_l_levels_sql_" enabled ="true"  comment ="@参数在sql节点">
     <sql>select * from user u WHERE u.level in( @levels ) ORDER BY level</sql>
     <key>@levels</key>
@@ -59,7 +59,7 @@ ID|NAME|LEVEL
 
 @参数在params节点:
 
-```
+```xml
 <cache name="user_l_levels_params_" class="ddl.User" prefix="user_l_levels_params_" enabled ="true"  comment ="@参数在params节点">
     <sql>select * from user u WHERE u.level in( ? ) ORDER BY level</sql>
     <key>@levels</key>
@@ -72,7 +72,7 @@ ID|NAME|LEVEL
 
 ## 客户端调用
 
-```
+```java
 @Test
 public void testLevel() {
     String levels = "1,2";
@@ -112,13 +112,13 @@ JWS的DAL被调用时，如何参数替换。
 
 此时sql语句：
 
-```
+```sql
 select * from user u WHERE u.level in( @levels ) ORDER BY level
 ```
 
 上面例子，即把@levels替换成【1,2 】，最终得到3条记录，最终实际执行SQL如下：
 
-```
+```sql
 select * from user where level in(1,2)
 ```
 
@@ -132,13 +132,13 @@ select * from user where level in(1,2)
 
 此时sql语句：
 
-```
+```sql
 select * from user u WHERE u.level in( ? ) ORDER BY level
 ```
 
 上面例子，即把@levels替换成【'1,2'】，注意这里的''，最终得到2条记录，最终实际执行SQL如下：
 
-```
+```sql
 select * from user where level in('1,2')
 ```
 
@@ -147,7 +147,7 @@ select * from user where level in('1,2')
 
 ### 从MSQL SQL角度看问题
 
-```
+```sql
 a	select * from user where level in(1,2)
 b	select * from user where level in('1,2')
 ```
@@ -156,7 +156,7 @@ b	select * from user where level in('1,2')
 
 因此对于b语句 ，实际等效下面语句:
 
-```
+```sql
 select * from user where level in(1)
 ```
 
