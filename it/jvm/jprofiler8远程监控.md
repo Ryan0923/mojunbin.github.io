@@ -9,8 +9,8 @@ jprofiler是最常见的java性能分析工具，功能强大，可以监控本�
 
 工具环境：
 
-客户端：jprofiler.8_1_1；
-服务端：jprofiler.8_1_1；
+客户端：jprofiler.8_1_4；
+服务端：jprofiler.8_1_4；
 服务端JDK：至少1.4，建议1.6以上；
 服务端操作系统：centos 64位;
 
@@ -50,3 +50,8 @@ resin服务器，在resin.conf添加配置：
 
 其他tomcat、jetty服务器配置类似，关键是把**agentpath**参数传递给JVM。
 
+
+# SSH
+- [jprofile ssh](http://blog.ej-technologies.com/2015/11/remote-profiling-through-ssh-tunnel.html)
+
+http://blog.ej-technologies.com/2011/09/inspections-in-heap-walker.html
